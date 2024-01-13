@@ -20,4 +20,12 @@ public class CalculatorService : CalculatorBase
             Message = "Hello " + request.Name
         });
     }
+
+    public override Task<SumResponse> Sum(SumRequest request, ServerCallContext context)
+    {
+        return Task.FromResult(new SumResponse
+        {
+            Result = request.A + request.B
+        });
+    }
 }

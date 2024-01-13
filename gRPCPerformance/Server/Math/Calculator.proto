@@ -6,14 +6,22 @@ package Calc;
 
 service Calculator {
   rpc SayHello (HelloRequest) returns (HelloReply);
+  rpc Sum (SumRequest) returns (SumResponse);
 }
 
-// The request message containing the user's name.
 message HelloRequest {
   string name = 1;
 }
 
-// The response message containing the greetings.
 message HelloReply {
   string message = 1;
+}
+
+message SumRequest {
+  int32 a = 1;
+  int32 b = 2;
+}
+
+message SumResponse {
+  int32 result = 1;
 }
