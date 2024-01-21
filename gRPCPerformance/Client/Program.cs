@@ -14,7 +14,7 @@ var calulatorLib = new CalculatorLibClass();
 Stopwatch stopwatch = new();
 
 stopwatch.Start();
-var reply = await gRPCClient.SayHelloAsync(new HelloRequest { Name = "Client" }, null);
+var reply = await gRPCClient.GetTimeMessageAsync(new MessageRequest { Time = "Client" }, null);
 stopwatch.Stop();
 Console.WriteLine("");
 Console.WriteLine($"Time to open gRPC channel: {stopwatch.ElapsedMilliseconds}ms");

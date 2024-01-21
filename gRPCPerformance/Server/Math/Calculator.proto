@@ -5,15 +5,15 @@ option csharp_namespace = "GrpcCalculator";
 package Calc;
 
 service Calculator {
-  rpc SayHello (HelloRequest) returns (HelloReply);
+  rpc GetTimeMessage (MessageRequest) returns (MessageReply);
   rpc Sum (SumRequest) returns (SumResponse);
 }
 
-message HelloRequest {
-  string name = 1;
+message MessageRequest {
+  string time = 1;
 }
 
-message HelloReply {
+message MessageReply {
   string message = 1;
 }
 

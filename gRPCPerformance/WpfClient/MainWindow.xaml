@@ -1,0 +1,42 @@
+﻿<Window x:Class="WpfClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="450"
+        Width="800">
+    <Grid>
+        <StackPanel Orientation="Vertical"
+                    Margin="20">
+
+            <ProgressBar Height="25"
+                         Margin="50"
+                         Background="DarkGreen"
+                         IsIndeterminate="True"
+                         IsEnabled="True" />
+
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Left"
+                        Margin="20">
+                <Button Content="Make sync call"
+                        Width="100"
+                        Click="OnSyncCallClicked" />
+                <TextBlock Margin="10,0,0,0"
+                           x:Name="syncTb" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Left"
+                        Margin="20">
+                <Button Content="Make async call"
+                        Click="OnAsyncCallClicked"
+                        Width="100" />
+                <TextBlock Margin="10,0,0,0"
+                           x:Name="asyncTb" />
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</Window>

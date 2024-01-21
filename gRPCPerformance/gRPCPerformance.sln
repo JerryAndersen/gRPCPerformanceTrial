@@ -7,7 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Client", "Client\Client.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Server", "Server\Server.csproj", "{01518506-2A43-4365-85DB-CD7B6E6D7B4F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorLib", "CalculatorLib\CalculatorLib.csproj", "{0919E175-14FB-4AB4-8BCB-2D0FE8E0723E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalculatorLib", "CalculatorLib\CalculatorLib.csproj", "{0919E175-14FB-4AB4-8BCB-2D0FE8E0723E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfClient", "WpfClient\WpfClient.csproj", "{2627BC47-E552-457B-B1A8-07D2242BC485}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PerformanceTests", "PerformanceTests\PerformanceTests.csproj", "{7C4E692A-D968-4680-9EC1-ADAB4181190A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{0919E175-14FB-4AB4-8BCB-2D0FE8E0723E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0919E175-14FB-4AB4-8BCB-2D0FE8E0723E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0919E175-14FB-4AB4-8BCB-2D0FE8E0723E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2627BC47-E552-457B-B1A8-07D2242BC485}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2627BC47-E552-457B-B1A8-07D2242BC485}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2627BC47-E552-457B-B1A8-07D2242BC485}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2627BC47-E552-457B-B1A8-07D2242BC485}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C4E692A-D968-4680-9EC1-ADAB4181190A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C4E692A-D968-4680-9EC1-ADAB4181190A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C4E692A-D968-4680-9EC1-ADAB4181190A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C4E692A-D968-4680-9EC1-ADAB4181190A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -13,11 +13,11 @@ public class CalculatorService : CalculatorBase
         _logger = logger;
     }
 
-    public override Task<HelloReply> SayHello(HelloRequest request, ServerCallContext context)
+    public override Task<MessageReply> GetTimeMessage(MessageRequest request, ServerCallContext context)
     {
-        return Task.FromResult(new HelloReply
+        return Task.FromResult(new MessageReply
         {
-            Message = "Hello " + request.Name
+            Message = "The clock is: " + request.Time
         });
     }
 
