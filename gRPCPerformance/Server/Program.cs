@@ -17,7 +17,6 @@ public class Program
                     options.ListenAnyIP(5000, listenOptions =>
                     {
                         listenOptions.Protocols = HttpProtocols.Http2;
-                        listenOptions.UseHttps();
                     });
                 })
                 .UseStartup<Startup>();

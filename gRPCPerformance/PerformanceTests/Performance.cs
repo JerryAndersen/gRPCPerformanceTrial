@@ -2,66 +2,61 @@ using CalculatorLib;
 using Grpc.Net.Client;
 using GrpcCalculator;
 using System.Diagnostics;
+using static GrpcCalculator.Calculator;
 
 namespace PerformanceTests;
 
 [TestClass]
 public class Performance
 {
-    private Process myProcess;
+    private Process? serverProcess;
+    private GrpcChannel? channel;
+    private CalculatorClient? calculatorClient;
 
     [TestInitialize]
     public void Initialize()
     {
-        myProcess = new Process();
-        myProcess.StartInfo.FileName = "Server.exe";
-        myProcess.StartInfo.UseShellExecute = false;
-        myProcess.Start();
+        serverProcess = new();
+        serverProcess.StartInfo.FileName = "Server.exe";
+        serverProcess.StartInfo.UseShellExecute = false;
+        serverProcess.Start();
+        channel = GrpcChannel.ForAddress("https://localhost:5000");
+        calculatorClient = new(channel);
     }
 
     [TestCleanup]
     public void Cleanup()
     {
-        if (!myProcess.HasExited)
+        if (!serverProcess!.HasExited)
         {
-            myProcess.Kill();
+            serverProcess.Kill();
         }
-        myProcess.Dispose();
+        serverProcess.Dispose();
+        //calculatorClient?.Dispose();
+        channel?.Dispose();
     }
 
     [TestMethod]
     public async Task MeasureSingleCallToGrpc()
     {
-        using var channel = GrpcChannel.ForAddress("https://localhost:5000");
-
-        var gRPCClient = new Calculator.CalculatorClient(channel);
-       
-        await gRPCClient.GetTimeMessageAsync(new MessageRequest { Time = "21/01/2024 17:55:14" }, null);
+        await calculatorClient!.GetTimeMessageAsync(new MessageRequest { Time = "21/01/2024 17:55:14" }, null);
     }
 
     [TestMethod]
     public void Measure100SyncCallToGrpc()
     {
-        using var channel = GrpcChannel.ForAddress("https://localhost:5000");
-
-        var gRPCClient = new Calculator.CalculatorClient(channel);
-
         for (int i = 0; i < 100; i++)
         {
-            gRPCClient.Sum(new SumRequest { A = 4566, B = i }, null);
+            calculatorClient!.Sum(new SumRequest { A = 4566, B = i }, null);
         }
     }
 
     [TestMethod]
     public async Task Measure100AsyncCallToGrpc()
     {
-        using var channel = GrpcChannel.ForAddress("https://localhost:5000");
-
-        var gRPCClient = new Calculator.CalculatorClient(channel);
-
         for (int i = 0; i < 100; i++)
         {
-            await gRPCClient.SumAsync(new SumRequest { A = 4566, B = i }, null);
+            await calculatorClient!.SumAsync(new SumRequest { A = 4566, B = i }, null);
         }
     }
 

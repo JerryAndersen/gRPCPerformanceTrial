@@ -6,7 +6,7 @@ using System.Diagnostics;
 Console.WriteLine("Press any key to begin masure gRPC performance vs class library");
 Console.ReadKey();
 
-using var channel = GrpcChannel.ForAddress("https://localhost:5000");
+using var channel = GrpcChannel.ForAddress("http://localhost:5000");
 
 var gRPCClient = new GrpcCalculator.Calculator.CalculatorClient(channel);
 var calulatorLib = new CalculatorLibClass();
@@ -56,8 +56,6 @@ for (int i = 0; i < 1000; i++)
 }
 stopwatch.Stop();
 Console.WriteLine($"Sum was calculated by class library (1000)(sync) in: {stopwatch.ElapsedMilliseconds}ms");
-
-
 
 Console.WriteLine("Press any key to exit...");
 Console.ReadKey();
